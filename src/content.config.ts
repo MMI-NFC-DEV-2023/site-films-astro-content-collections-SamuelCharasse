@@ -37,8 +37,8 @@ const films = defineCollection({
     realisateur: reference("personne").optional(),
     scenariste: z.array(reference("personne")).optional(),
     roles: z.array(
-      z.object({ acteur: reference("personne"), role: z.string() })
-    ),
+      z.object({ acteur: reference("personne"), role: z.string() }),
+    ).optional(),
   }),
 });
 export const collections = { personne, films };
