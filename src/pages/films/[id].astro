@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import { formatDate } from "../../helpers";
 import Layout from "../../layouts/Layout.astro";
 import { getEntry, getEntries } from "astro:content";
+import LinkPersonne from "../../components/LinkPersonne.astro";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const films = await getCollection("films");
@@ -38,7 +39,7 @@ const roles =
       <p>
         Scénario écrit par :{" "}
         {scenariste
-          .map((s) => s.data.nom)
+          .map((s) => <linkPersonne personne={s} />)
           .join(", ")
           .replace(/, ([^,]*)$/, " et $1")}
       </p>
@@ -51,14 +52,13 @@ const roles =
         <ul>
           {roles.map(({ role, acteur }) => (
             <li>
-              <strong>{role}</strong> : {acteur.data.nom}
+              <strong>{role}</strong> {acteur && <LinkPersonne personne={realisateur} />}
             </li>
           ))}
         </ul>
       </>
     )
   }
-  </ul>
   <div class="prose">
     <Content />
   </div>
