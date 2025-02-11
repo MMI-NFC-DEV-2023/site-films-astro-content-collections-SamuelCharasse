@@ -13,6 +13,10 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { personne } = Astro.props;
 const { Content } = await render(personne);
+
+const professions = personne.data.profession && [
+  ...new Set(personne.data.profession),
+];
 ---
 
 <Layout pageTitle={personne.data.nom}>
@@ -25,10 +29,15 @@ const { Content } = await render(personne);
       <p>Date de décès : {formatDate(personne.data.dateDeces)}</p>
     )
   }
-  {personne.data.profession && 
-    <p>Profession{personne.data.profession.length>1 && <>s</>} : {personne.data.profession.join(", ")}</p>
-   }
+  {
+    professions && (
+      <p>
+        Profession{professions.length > 1 && <>s</>} :{" "}
+        {professions.join(", ").replace(/, ([^,]*)$/, " et $1")}.
+      </p>
+    )
+  }
   <div class="prose">
     <Content />
   </div>
-</Layout> 
+</Layout>
