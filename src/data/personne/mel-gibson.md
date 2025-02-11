@@ -7,7 +7,3 @@ dateDeces: 2010-03-12
 ---
 
 # Biographie de Mel Gibson
-
-- acteur
-- réalisateur
-- producteur
