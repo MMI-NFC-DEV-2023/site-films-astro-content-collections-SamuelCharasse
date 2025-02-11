@@ -1,5 +1,7 @@
 ---
-titre : Fight Club
-dateSortie : 1999-10-15
-realisateur : moi
+titre: Fight Club
+dateSortie: 1999-10-15
+realisateur: moi
+scenariste:
+  - moi
 ---
