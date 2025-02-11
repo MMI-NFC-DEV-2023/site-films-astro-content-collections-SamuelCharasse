@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const film = await getCollection("films");
+---
+
+<Layout pageTitle="Liste des films">
+  <h1>Liste des Films</h1>
+  <ul>
+    {
+      film.map((films) => (
+        <li>
+          <a href={`/films/${films.id}`}>{films.data.titre}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
