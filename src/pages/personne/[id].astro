@@ -28,5 +28,7 @@ const { Content } = await render(personne);
   {personne.data.profession && 
     <p>Profession{personne.data.profession.length>1 && <>s</>} : {personne.data.profession.join(", ")}</p>
    }
-  <Content />
+  <div class="prose">
+    <Content />
+  </div>
 </Layout> 
