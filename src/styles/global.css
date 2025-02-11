@@ -1,6 +1,7 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 a {
-    color: blueviolet;
-    text-decoration: none;
+  color: blueviolet;
+  text-decoration: none;
 }
