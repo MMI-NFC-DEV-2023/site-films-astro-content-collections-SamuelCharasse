@@ -44,16 +44,12 @@ const filmsRealises = [...(await getCollection("films"))].filter(
   }
   {
     filmsRealises.length > 0 && (
-      <>
-        <h2>Films réalisés</h2>
-        <ul>
-          {filmsRealises.map((film) => (
-            <li>
-              <LinkFilm {...film} />
-            </li>
-          ))}
-        </ul>
-      </>
+      <p class="text-lg text-gray-700">
+        <strong>Films réalisés :</strong>{" "}
+        {filmsRealises.map((film) => (
+          <LinkFilm {...film} />
+        ))}
+      </p>
     )
   }
   <div class="prose">
