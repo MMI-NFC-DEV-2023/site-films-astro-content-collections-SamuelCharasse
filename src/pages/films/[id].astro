@@ -37,22 +37,22 @@ const roles =
   {
     scenariste && (
       <p>
-        Scénario écrit par :{" "}
-        {scenariste
-          .map((s) => <linkPersonne personne={s} />)
-          .join(", ")
-          .replace(/, ([^,]*)$/, " et $1")}
+        Scénario écrit par :
+        {scenariste.map((s) => (
+          <linkPersonne personne={s} />
+        ))}
       </p>
     )
   }
   {
-    roles &&(
+    roles && (
       <>
         <h2>Acteurs</h2>
         <ul>
           {roles.map(({ role, acteur }) => (
             <li>
-              <strong>{role}</strong> {acteur && <LinkPersonne personne={realisateur} />}
+              <strong>{role}</strong>{" "}
+              {acteur && <LinkPersonne personne={realisateur} />}
             </li>
           ))}
         </ul>
