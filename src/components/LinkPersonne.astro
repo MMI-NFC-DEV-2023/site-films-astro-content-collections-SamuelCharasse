@@ -2,4 +2,10 @@
 const { personne } = Astro.props;
 ---
 
-<>: <a href={`/personne/${personne.id}`}>{personne.data.nom}</a></>
+{
+  personne ? (
+    <a href={`/personne/${personne.id}`} class="text-blue-600 hover:underline">{personne.data.nom}</a>
+  ) : (
+    <span class="text-gray-500 italic">Personne introuvable</span>
+  )
+}
